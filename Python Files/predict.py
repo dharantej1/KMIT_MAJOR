@@ -16,7 +16,7 @@ enhanced_image = process_low_light_image(input_image_path, model_file_path)
 enhanced_image = np.clip(enhanced_image, 0, 255).astype(np.uint8)
 
 # Save the enhanced image in JPEG format
-output_image_path = "enhanced_image.jpg"
+output_image_path = "Python Files/enhanced_image.jpg"
 enhanced_image_bgr = cv.cvtColor(enhanced_image, cv.COLOR_RGB2BGR)
 cv.imwrite(output_image_path, enhanced_image_bgr)
 
