@@ -120,8 +120,9 @@ def InstantiateModel(in_):
 
     return model_5
 
-
+print('started training...')
 X_, y_ = PreProcessData(InputPath)
+print('completed training...!')
 
 K.clear_session()
 Input_Sample = Input(shape=(500, 500, 3))
