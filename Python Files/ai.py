@@ -16,7 +16,7 @@ import tensorflow as tf
 tf.random.set_seed(2)
 np.random.seed(1)
 
-# InputPath="/bin/download.jpeg"
+InputPath=""
 
 def noisy(noise_typ,image):
     if noise_typ == "gauss":
@@ -116,7 +116,7 @@ def InstantiateModel(in_):
     
     return model_5
 
-X_,y_ = PreProcessData("/bin/")
+X_,y_ = PreProcessData(InputPath)
 
 K.clear_session()
 Input_Sample = Input(shape=(500, 500,3))
