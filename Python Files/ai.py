@@ -18,7 +18,7 @@ import tensorflow as tf
 tf.random.set_seed(2)
 np.random.seed(1)
 
-InputPath = "Python Files/archive/images/images/architecture"
+InputPath = "Python Files/archive/images/images/architecture/"
 
 
 def noisy(noise_typ, image):
@@ -167,7 +167,7 @@ def process_low_light_image(image_path, model_path):
 
 
 # Use this function to process low light images and get enhanced images
-enhanced_image = process_low_light_image(InputPath+"/2.jpg", "model_enhancer.h5")
+enhanced_image = process_low_light_image(InputPath+"2.jpg", "model_enhancer.h5")
 
 # Uncomment the following lines if you want to visualize the results
 import matplotlib.pyplot as plt
