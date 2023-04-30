@@ -16,7 +16,7 @@ import tensorflow as tf
 tf.random.set_seed(2)
 np.random.seed(1)
 
-InputPath="/bin/download.jpeg"
+# InputPath="/bin/download.jpeg"
 
 def noisy(noise_typ,image):
     if noise_typ == "gauss":
@@ -148,6 +148,7 @@ def ExtractTestInput(ImagePath):
     Noise = Noise.reshape(1,500,500,3)
     return Noise
 
+# this is extra set of code which is used to generate the final image from the trained model
 def process_low_light_image(image_path, model_path):
     model = load_model(model_path)
     low_light_image = ExtractTestInput(image_path)
