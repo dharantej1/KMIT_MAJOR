@@ -13,6 +13,7 @@ from keras.models import Model
 from keras.preprocessing.image import ImageDataGenerator
 from keras.saving.saving_api import load_model
 
+import time
 import tensorflow as tf
 
 tf.random.set_seed(2)
@@ -120,9 +121,11 @@ def InstantiateModel(in_):
 
     return model_5
 
+start=time.time()
 print('started training...')
 X_, y_ = PreProcessData(InputPath)
 print('completed training...!')
+print('Total Time taken for training: ',time.time()-start)
 
 K.clear_session()
 Input_Sample = Input(shape=(500, 500, 3))
