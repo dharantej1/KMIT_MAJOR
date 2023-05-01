@@ -53,14 +53,16 @@ def process_low_light_image(image_path, model_path):
         return Noise
 
     # Load the trained model
+    print(model_path)
+    print(image_path)
     model = load_model(model_path)
 
     # Process the input image
     img = ExtractTestInput(image_path)
-
+    print("img is",img)
     # Make the prediction
     prediction = model.predict(img)
-
+    print(prediction)
     # Reshape the prediction to an image
     enhanced_image = prediction.reshape(500, 500, 3)
 

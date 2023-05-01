@@ -164,8 +164,15 @@ def ExtractTestInput(ImagePath):
 # this is extra set of code which is used to generate the final image from the trained model
 def process_low_light_image(image_path, model_path):
     model = load_model(model_path)
-    low_light_image = ExtractTestInput(image_path)
-    enhanced_image = model.predict(low_light_image)
+    
+    img = cv.imread(image_path)
+    img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+    img = cv.resize(img, (500, 500))
+    hsv = cv.cvtColor(img, cv.COLOR_RGB2HSV)  # convert it to hsv
+    hsv[..., 2] = hsv[..., 2] * 0.2
+    img1 = cv.cvtColor(hsv, cv.COLOR_HSV2BGR)
+    img1 = img1.reshape(1, 500, 500, 3)
+    enhanced_image = model.predict(img1)
     enhanced_image = enhanced_image.reshape(500, 500, 3)
     return enhanced_image
 
